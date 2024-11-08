@@ -1,3 +1,6 @@
+> [!IMPORTANT] 
+> We know, we know, this documentation is incomplete. We're still working on it (and we'll get there, eventually). In the meantime, the best way to learn how to create a Backslash plugin is to check out the source code of some existing plugins. [Browse through the plugins on GitHub](https://github.com/backslash-app/plugins) and see how they're structured. You can also [join our Discord server](https://discord.gg/sTzwBzDkK9) and ask for help or advice. We're always happy to help out!
+
 # Backslash Plugin Documentation
 
 Welcome to the **Backslash Plugin Documentation**! So, you’ve decided to take Backslash to the next level and create your own plugin. Awesome! It's time to flex your developer muscles and add whatever command-line magic you want to Backslash. It's easier than you think (unless you're already thinking it's easy, then... it's still that).
@@ -30,6 +33,3 @@ A Backslash plugin is a simple module that you can add to extend Backslash's fun
 1. **Because you can**. You're a Linux user, you already solve your problems with shell scripts. Why not make them pretty with Backslash?
 2. **Automation**. If you're doing the same repetitive tasks, turn them into a plugin, and let Backslash handle it.
 3. **Sharing is caring**. Once you've built something cool, share it with the rest of the Linux community. (They might even use it!)
-
-> [!IMPORTANT] 
-> We know, we know, this documentation is incomplete. We're still working on it (and we'll get there, eventually). In the meantime, the best way to learn how to create a Backslash plugin is to check out the source code of some existing plugins. [Browse through the plugins on GitHub](https://github.com/backslash-app/plugins) and see how they're structured. You can also [join our Discord server](https://discord.gg/sTzwBzDkK9) and ask for help or advice. We're always happy to help out!

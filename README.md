@@ -58,7 +58,15 @@ Need to remind yourself why you're using Linux and not macOS? Backslash will _no
 
 ## No Commands? No Problem!
 
-It's time to add some plugins. Just go to our [plugins repo](https://github.com/backslash-app/plugins), find some code that tickles your fancy, and copy it into a folder of your choosing. It's like grocery shopping, but for nerds. Once you've got your digital goodies, fire up Backslash and click on that lonely button on the right (Don't worry, it's the only button there. Even a sleep-deprived developer couldn't mess this up). Then, simply point Backslash to your new plugin folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
+It's time to add some plugins. Just go to our [plugins repo](https://github.com/backslash-app/plugins), find some code that tickles your fancy, and copy it into a folder of your choosing. It's like grocery shopping, but for nerds.
+
+Once you've got your digital goodies, fire up Backslash and click on that lonely button on the right (Don't worry, it's the only button there. Even a sleep-deprived developer couldn't mess this up).
+
+Then, simply point Backslash to your new plugin folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
+
+> [!WARNING] 
+> Remember, this folder must contain plugins only. We know your dog is adorable and your grandma's birthday bash was epic, but please, keep those photo folders on your personal drive. This is a strict no-pet-pics, no-family-reunion-snapshots zone. We want to see your code, not your Corgi (no matter how cute they are in that programmer's hat). Stick to plugins, and let's keep this digital space as organized as we all pretend our actual desktops are. Your future self, digging through this repo at 3 AM, will thank you.__
+
 
 ## FAQ
 

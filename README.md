@@ -1,10 +1,14 @@
-![backslash_banner](https://github.com/user-attachments/assets/6c644f98-21e5-42fb-840b-387ea1940962)
+
+![bs_banner](https://github.com/user-attachments/assets/ca33bf1a-9910-4d18-9bf4-bbfc62be8df3)
 
 [Documentation](https://github.com/stevenpersia/backslash/blob/main/DOCUMENTATION.md) | [Releases](https://github.com/stevenpersia/backslash/releases) | [Discord server](https://discord.gg/sTzwBzDkK9)
 
 **The Raycast Clone Your Linux Desktop Deserves**  
 > **"The failed uncle of the family"**  
 > _Because every family has that one uncle... you know, the one who's a bit of a screw-up but still kind of lovable in his own tragic way. That's Backslash, and Raycast is the golden child. But deep down, we all have a soft spot for the underdog. Right?_
+
+<img src="https://github.com/user-attachments/assets/408460b0-08f1-48ef-abbf-ad3a4004ffe2" width="33%"/> <img src="https://github.com/user-attachments/assets/3e5ecc6f-f108-4590-b64d-57be598417ad" width="33%"/> <img src="https://github.com/user-attachments/assets/67c812d9-4355-4de9-8c70-943676e0fc16" width="33%"/> 
+
 
 > [!IMPORTANT] 
 > Backslash is currently in **ALPHA** and is subject to change. Be aware that any plugins you create may break in future updates. We appreciate your patience.

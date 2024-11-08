@@ -50,11 +50,15 @@ And just like that, you’re the proud user of Backslash.
 
 ## Usage
 
-Once installed, summon the great **Backslash** with a simple keystroke, and start typing away! You’ll feel like the Linux wizard you were always meant to be.
+Once installed, summon the great **Backslash** with a simple keystroke (control + space), and start typing away! You’ll feel like the Linux wizard you were always meant to be.
 
 Need a command? It’s right there.  
 Need to open an app? Done.  
 Need to remind yourself why you're using Linux and not macOS? Backslash will _not_ help you there. That’s between you and your life choices.
+
+## No Commands? No Problem!
+
+It's time to add some plugins. Just go to our [plugins repo](https://github.com/backslash-app/plugins), find some code that tickles your fancy, and copy it into a folder of your choosing. It's like grocery shopping, but for nerds. Once you've got your digital goodies, fire up Backslash and click on that lonely button on the right (Don't worry, it's the only button there. Even a sleep-deprived developer couldn't mess this up). Then, simply point Backslash to your new plugin folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
 
 ## FAQ
 

@@ -24,9 +24,7 @@
 
 ## Introduction
 
-Welcome to **Backslash** – the Linux-only, open-source alternative to Raycast that you didn’t know you needed, and maybe you still don’t. But hey, you’re here, so let’s roll with it.
-
-If you're tired of seeing shiny, sleek apps for macOS while us Linux users eat crumbs from the tech table, well, here’s Backslash. It’s like Raycast’s weird, estranged uncle who wasn’t invited to the fancy family dinners, but showed up anyway. And guess what? We're doing it _our_ way.
+Welcome to **Backslash** – the Linux-only, open-source alternative to Raycast that you didn't know you needed. It's a powerful productivity tool that allows users to quickly search, launch applications, and execute custom commands, all from a sleek, keyboard-driven interface. With its extensible plugin system, Backslash brings the flexibility and customization that Linux users love to the world of productivity launchers.
 
 Sure, Raycast is slick, smooth, and sophisticated. But Backslash? Backslash has **character**. So get comfortable and give it a shot — because Linux users deserve nice things too (even if it’s held together by shell scripts and pure spite).
 

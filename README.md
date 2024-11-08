@@ -9,7 +9,6 @@
 
 <p align="center"><img src="https://github.com/user-attachments/assets/408460b0-08f1-48ef-abbf-ad3a4004ffe2" width="30%"/> <img src="https://github.com/user-attachments/assets/3e5ecc6f-f108-4590-b64d-57be598417ad" width="30%"/> <img src="https://github.com/user-attachments/assets/67c812d9-4355-4de9-8c70-943676e0fc16" width="30%"/></p>
 
-
 > [!IMPORTANT] 
 > Backslash is currently in **ALPHA** and is subject to change. Be aware that any plugins you create may break in future updates. We appreciate your patience.
 

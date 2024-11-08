@@ -62,7 +62,7 @@ Once you've got your digital goodies, fire up Backslash and click on that lonely
 Then, simply point Backslash to your new plugins folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
 
 > [!WARNING] 
-> Remember, this plugins folder must contain plugins, only. We know your dog is adorable and your grandma's birthday bash was epic, but please, keep those photo folders on your personal drive. This is a strict no-pet-pics, no-family-reunion-snapshots zone. We want to see your code, not your Corgi (no matter how cute they are in that programmer's hat).
+> Remember, this plugins folder must contain plugins, only. We know your dog is adorable and your grandma's birthday bash was epic, but please, keep those photo folders on your personal drive. This is a strict no-pet-pics, no-family-reunion-snapshots zone.
 
 
 ## FAQ

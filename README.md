@@ -1,7 +1,7 @@
 
 ![bs_banner](https://github.com/user-attachments/assets/ca33bf1a-9910-4d18-9bf4-bbfc62be8df3)
 
-[Documentation](https://github.com/stevenpersia/backslash/blob/main/DOCUMENTATION.md) | [Releases](https://github.com/stevenpersia/backslash/releases) | [Discord server](https://discord.gg/sTzwBzDkK9)
+[Plugins](https://github.com/backslash-app/plugins) | [Documentation](https://github.com/stevenpersia/backslash/blob/main/DOCUMENTATION.md) | [Releases](https://github.com/stevenpersia/backslash/releases) | [Discord server](https://discord.gg/sTzwBzDkK9)
 
 **The Raycast Clone Your Linux Desktop Deserves**  
 > **"The failed uncle of the family"**  

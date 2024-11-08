@@ -59,10 +59,10 @@ It's time to add some plugins. Just go to our [plugins repo](https://github.com/
 
 Once you've got your digital goodies, fire up Backslash and click on that lonely button on the right (Don't worry, it's the only button there. Even a sleep-deprived developer couldn't mess this up).
 
-Then, simply point Backslash to your new plugin folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
+Then, simply point Backslash to your new plugins folder. Voila! You've just transformed your Backslash from a blank slate into a powerhouse of productivity (or procrastination, we don't judge).
 
 > [!WARNING] 
-> Remember, this folder must contain plugins only. We know your dog is adorable and your grandma's birthday bash was epic, but please, keep those photo folders on your personal drive. This is a strict no-pet-pics, no-family-reunion-snapshots zone. We want to see your code, not your Corgi (no matter how cute they are in that programmer's hat).
+> Remember, this plugins folder must contain plugins, only. We know your dog is adorable and your grandma's birthday bash was epic, but please, keep those photo folders on your personal drive. This is a strict no-pet-pics, no-family-reunion-snapshots zone. We want to see your code, not your Corgi (no matter how cute they are in that programmer's hat).
 
 
 ## FAQ

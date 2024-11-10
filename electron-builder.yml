@@ -16,7 +16,8 @@ linux:
     - AppImage
     - snap
     - deb
-  maintainer: electronjs.org
+  maintainer: Steven Persia <persia.steven8@gmail.com>
+  icon: build/icon.png
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}

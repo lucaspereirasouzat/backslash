@@ -1,7 +1,7 @@
 
 ![bs_banner](https://github.com/user-attachments/assets/ca33bf1a-9910-4d18-9bf4-bbfc62be8df3)
 
-[Plugins](https://github.com/backslash-app/plugins) | [Documentation](https://github.com/stevenpersia/backslash/blob/main/DOCUMENTATION.md) | [Releases](https://github.com/stevenpersia/backslash/releases) | [Discord server](https://discord.gg/sTzwBzDkK9)
+[Plugins](https://github.com/backslash-app/plugins) | [Documentation](https://github.com/backslash-app/backslash/blob/main/DOCUMENTATION.md) | [Releases](https://github.com/backslash-app/backslash/releases) | [Discord server](https://discord.gg/sTzwBzDkK9)
 
 **The Raycast Clone Your Linux Desktop Deserves**  
 > **"The failed uncle of the family"**  
@@ -41,7 +41,7 @@ Backslash has everything you need, and maybe some things you don’t, but hey, w
 
 It's simple, really. Even your distro-hopping soul can handle this.
 
-Download the latest release [here](https://github.com/stevenpersia/backslash/releases).
+Download the latest release [here](https://github.com/backslash-app/backslash/releases).
 
 And just like that, you’re the proud user of Backslash.
 
@@ -75,7 +75,7 @@ So if you want your pretty little `.App` file, feel free to check out Raycast, a
 **A:** Ah, stability... It's like asking if your cat will puke on your keyboard (it will). Backslash is currently in **ALPHA**, so, you know, it's stable for a cat that's still learning to walk. But hey, Linux users are known for their love of adventure and for living life on the edge, right? So, buckle up, and join the ride! (Or, you know, just wait until it's not in alpha anymore.)
 
 ### **Q: Can I customize Backslash?**  
-**A:** Of course you can! This is **Linux**. Customization is our birthright. You can add commands, integrate your own scripts, and more. If you break something, that's just part of the fun. Just checkout our amazing [documentation](https://github.com/stevenpersia/backslash/blob/main/DOCUMENTATION.md).
+**A:** Of course you can! This is **Linux**. Customization is our birthright. You can add commands, integrate your own scripts, and more. If you break something, that's just part of the fun. Just checkout our amazing [documentation](https://github.com/backslash-app/backslash/blob/main/DOCUMENTATION.md).
 
 ### **Q: Why do you hate Raycast and Mac users?**
 **A:** Oh, we don’t hate Raycast at all! In fact, we're huge admirers of their work—that’s precisely why we made a Linux version. Deep down, we know we’re not bringing Backslash to macOS because, well, we’d feel a bit ridiculous next to the real deal.

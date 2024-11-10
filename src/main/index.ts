@@ -14,6 +14,7 @@ import {
   runCommand,
   runPluginAction
 } from './handlers'
+import { setupAutoUpdater } from './autoUpdater'
 
 let mainWindow: BrowserWindow
 let tray: Tray | null = null
@@ -84,6 +85,8 @@ const createTray = () => {
 }
 
 app.whenReady().then(async () => {
+  const { checkForUpdates } = setupAutoUpdater()
+
   electronApp.setAppUserModelId('com.electron')
 
   app.on('browser-window-created', (_, window) => {
@@ -138,6 +141,8 @@ app.whenReady().then(async () => {
       await createWindow()
     }
   })
+
+  checkForUpdates()
 })
 
 app.on('window-all-closed', () => {

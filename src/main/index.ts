@@ -18,6 +18,7 @@ import { setupAutoUpdater } from './autoUpdater'
 
 let mainWindow: BrowserWindow
 let tray: Tray | null = null
+const gotTheLock = app.requestSingleInstanceLock()
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
@@ -84,66 +85,78 @@ const createTray = () => {
   tray.setContextMenu(contextMenu)
 }
 
-app.whenReady().then(async () => {
-  const { checkForUpdates } = setupAutoUpdater()
-
-  electronApp.setAppUserModelId('com.electron')
-
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window)
-  })
-
-  await createWindow()
-  createTray()
-
-  ipcMain.handle('get-commands', () => {
-    return getCommands()
-  })
-
-  ipcMain.handle('list-installed-applications', async () => {
-    return listInstalledApplications()
-  })
-
-  ipcMain.handle('open-application', async (_, command) => {
-    return openApplication(command)
-  })
-
-  ipcMain.handle('open-external', async (_, url) => {
-    return openExternal(url)
-  })
-
-  ipcMain.handle('run-command', async (_, pluginName, commandName, params) => {
-    return runCommand(pluginName, commandName, params)
-  })
-
-  ipcMain.handle('get-plugin-actions', async (_, pluginName, commandName) => {
-    return getPluginActions(pluginName, commandName)
-  })
-
-  ipcMain.handle('run-plugin-action', async (_, pluginName, commandName, actionName, result) => {
-    return runPluginAction(pluginName, commandName, actionName, result)
-  })
-
-  ipcMain.handle('choose-plugins-dir', async () => {
-    return choosePluginsDir()
-  })
-
-  ipcMain.on('hide-main-window', () => {
-    if (mainWindow) mainWindow.hide()
-  })
-
-  ipcMain.on('reload-app', () => {
-    if (mainWindow) mainWindow.reload()
-  })
-
-  app.on('activate', async () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      await createWindow()
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+      mainWindow.show()
     }
   })
 
-  checkForUpdates()
-})
+  app.whenReady().then(async () => {
+    const { checkForUpdates } = setupAutoUpdater()
+
+    electronApp.setAppUserModelId('com.electron')
+
+    app.on('browser-window-created', (_, window) => {
+      optimizer.watchWindowShortcuts(window)
+    })
+
+    await createWindow()
+    createTray()
+
+    ipcMain.handle('get-commands', () => {
+      return getCommands()
+    })
+
+    ipcMain.handle('list-installed-applications', async () => {
+      return listInstalledApplications()
+    })
+
+    ipcMain.handle('open-application', async (_, command) => {
+      return openApplication(command)
+    })
+
+    ipcMain.handle('open-external', async (_, url) => {
+      return openExternal(url)
+    })
+
+    ipcMain.handle('run-command', async (_, pluginName, commandName, params) => {
+      return runCommand(pluginName, commandName, params)
+    })
+
+    ipcMain.handle('get-plugin-actions', async (_, pluginName, commandName) => {
+      return getPluginActions(pluginName, commandName)
+    })
+
+    ipcMain.handle('run-plugin-action', async (_, pluginName, commandName, actionName, result) => {
+      return runPluginAction(pluginName, commandName, actionName, result)
+    })
+
+    ipcMain.handle('choose-plugins-dir', async () => {
+      return choosePluginsDir()
+    })
+
+    ipcMain.on('hide-main-window', () => {
+      if (mainWindow) mainWindow.hide()
+    })
+
+    ipcMain.on('reload-app', () => {
+      if (mainWindow) mainWindow.reload()
+    })
+
+    app.on('activate', async () => {
+      if (BrowserWindow.getAllWindows().length === 0) {
+        await createWindow()
+      }
+    })
+
+    checkForUpdates()
+  })
+}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

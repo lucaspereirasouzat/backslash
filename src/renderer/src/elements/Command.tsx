@@ -1,17 +1,10 @@
 import * as React from 'react'
 import { Command as CommandPrimitive } from 'cmdk'
 import { type DialogProps } from '@radix-ui/react-dialog'
-import { FolderCode, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 
 import { cn } from '@renderer/lib/utils'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@renderer/elements/Tooltip'
 import { Dialog, DialogContent } from '@renderer/elements/Dialog'
-import { Button } from '@renderer/elements/Button'
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -49,30 +42,13 @@ const CommandInput = React.forwardRef<
     onPluginsDirChange?: () => void
   }
 >(({ className, ...props }, ref) => (
-  <div className={cn('flex items-center gap-2 px-3', className)}>
-    <div className="flex flex-1 items-center" cmdk-input-wrapper="">
-      <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-      <CommandPrimitive.Input
-        ref={ref}
-        className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
-        {...props}
-      />
-    </div>
-
-    {props.onPluginsDirChange && (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger>
-            <Button onClick={props.onPluginsDirChange} size="icon" variant="outline">
-              <FolderCode />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Choose a plugins directory</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    )}
+  <div className={cn('flex flex-1 items-center', className)} cmdk-input-wrapper="">
+    <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+    <CommandPrimitive.Input
+      ref={ref}
+      className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      {...props}
+    />
   </div>
 ))
 
@@ -146,7 +122,7 @@ const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanE
   return (
     <kbd
       className={cn(
-        'flex items-center justify-center bg-zinc-800 text-zinc-400 text-xs font-semibold rounded-sm w-6 h-6',
+        'flex items-center justify-center bg-zinc-800 text-zinc-400 text-xs font-semibold rounded-sm min-w-6 h-6 p-1.5',
         className
       )}
       {...props}

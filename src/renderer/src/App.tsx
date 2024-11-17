@@ -8,7 +8,7 @@ import { CommandPage } from '@renderer/components/CommandPage'
 import { CommandApplications } from '@renderer/components/CommandApplications'
 import { CommandShortcuts } from '@renderer/components/CommandShortcuts'
 import { useScrollToTop } from '@renderer/hooks'
-import { winElectron } from './lib/utils'
+import { Settings } from '@renderer/components/Settings'
 
 const App = () => {
   const [selectedCommand, setSelectedCommand] = useState<CommandT | null>(null)
@@ -32,24 +32,21 @@ const App = () => {
     return found ? 1 : 0
   }
 
-  const handleChoosePluginsDir = async () => {
-    await winElectron.choosePluginsDir()
-    await winElectron.reloadApp()
-  }
-
   return (
     <div className="bg-black h-full">
       {!selectedCommand && (
         <Command filter={commandFilter} loop>
-          <CommandInput
-            autoFocus
-            className="border-b border-zinc-800"
-            value={commandSearch}
-            onValueChange={setCommandSearch}
-            onKeyDown={handleInputKeyDown}
-            onPluginsDirChange={handleChoosePluginsDir}
-            placeholder="Search commands..."
-          />
+          <div className="flex items-center gap-2 px-3 border-b border-zinc-800">
+            <CommandInput
+              autoFocus
+              value={commandSearch}
+              onValueChange={setCommandSearch}
+              onKeyDown={handleInputKeyDown}
+              placeholder="Search commands..."
+            />
+
+            <Settings />
+          </div>
 
           <CommandList ref={commandListRef}>
             <CommandEmpty />

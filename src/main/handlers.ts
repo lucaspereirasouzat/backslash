@@ -249,7 +249,7 @@ export const choosePluginsDir = async () => {
  * Gets the directory where plugins are stored.
  * @returns a Promise that resolves with the path to the plugins directory.
  */
-const getPluginsDir = (): Promise<string> => {
+export const getPluginsDir = (): Promise<string> => {
   return new Promise((resolve) => {
     storage.get('pluginsDir', (error, data) => {
       if (error) throw error
@@ -268,6 +268,39 @@ const setPluginsDir = (newPath: string): Promise<void> => {
     storage.set('pluginsDir', newPath, (error) => {
       if (error) reject(error)
       else resolve()
+    })
+  })
+}
+
+/**
+ * Gets the current hotkeys.
+ * @returns a Promise that resolves with the current hotkeys as an object.
+ */
+export const getHotkeys = (): Promise<{ [key: string]: string }> => {
+  return new Promise((resolve) => {
+    storage.get('hotkeys', (error, data) => {
+      if (error) throw error
+      resolve(data as { [key: string]: string })
+    })
+  })
+}
+
+/**
+ * Sets a hotkey for the given type.
+ * @param type the type of the hotkey (e.g. "toggle-app")
+ * @param hotkey the hotkey to set (e.g. "Ctrl+Space")
+ * @returns a Promise that resolves when the hotkey has been set.
+ */
+export const setHotkey = (type: string, hotkey: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    storage.get('hotkeys', (error, data) => {
+      if (error) reject(error)
+      const hotkeys = (data as { [key: string]: string }) ?? {}
+      hotkeys[type] = hotkey
+      storage.set('hotkeys', hotkeys, (error) => {
+        if (error) reject(error)
+        else resolve()
+      })
     })
   })
 }

@@ -31,6 +31,15 @@ if (process.contextIsolated) {
       choosePluginsDir: () => {
         return ipcRenderer.invoke('choose-plugins-dir')
       },
+      getPluginsDir: () => {
+        return ipcRenderer.invoke('get-plugins-dir')
+      },
+      getHotkeys: () => {
+        return ipcRenderer.invoke('get-hotkeys')
+      },
+      setHotkey: (type, hotkey) => {
+        return ipcRenderer.invoke('set-hotkey', type, hotkey)
+      },
       hideMainWindow: () => {
         return ipcRenderer.send('hide-main-window')
       },

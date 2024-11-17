@@ -7,12 +7,15 @@ import icon from '../../resources/icon.png?asset'
 import {
   choosePluginsDir,
   getCommands,
+  getHotkeys,
   getPluginActions,
+  getPluginsDir,
   listInstalledApplications,
   openApplication,
   openExternal,
   runCommand,
-  runPluginAction
+  runPluginAction,
+  setHotkey
 } from './handlers'
 import { setupAutoUpdater } from './autoUpdater'
 
@@ -39,10 +42,8 @@ const createWindow = async () => {
     return { action: 'deny' }
   })
 
-  globalShortcut.register('CommandOrControl+Space', () => {
-    if (mainWindow.isVisible()) mainWindow.hide()
-    else mainWindow.show()
-  })
+  ipcMain.on('disable-global-shortcuts', () => globalShortcut.unregisterAll())
+  ipcMain.on('enable-global-shortcuts', registerGlobalShortcut)
 
   mainWindow.on('blur', () => {
     if (!is.dev) mainWindow.hide()
@@ -61,6 +62,17 @@ const createWindow = async () => {
   } else {
     await mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+}
+
+const registerGlobalShortcut = async () => {
+  const hotkeys = await getHotkeys()
+  const toggleAppHotkey = hotkeys['toggle-app'] || 'Ctrl+Space'
+
+  globalShortcut.unregisterAll()
+  globalShortcut.register(toggleAppHotkey, () => {
+    if (mainWindow.isVisible()) mainWindow.hide()
+    else mainWindow.show()
+  })
 }
 
 const createTray = () => {
@@ -106,6 +118,7 @@ if (!gotTheLock) {
     })
 
     await createWindow()
+    await registerGlobalShortcut()
     createTray()
 
     ipcMain.handle('get-commands', () => {
@@ -138,6 +151,18 @@ if (!gotTheLock) {
 
     ipcMain.handle('choose-plugins-dir', async () => {
       return choosePluginsDir()
+    })
+
+    ipcMain.handle('get-plugins-dir', async () => {
+      return getPluginsDir()
+    })
+
+    ipcMain.handle('set-hotkey', async (_, type, hotkey) => {
+      return setHotkey(type, hotkey)
+    })
+
+    ipcMain.handle('get-hotkeys', async () => {
+      return getHotkeys()
     })
 
     ipcMain.on('hide-main-window', () => {

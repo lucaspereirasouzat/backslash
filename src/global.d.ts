@@ -25,6 +25,9 @@ declare global {
     openApplication: (command: string) => Promise<void>
     openExternal: (url: string) => Promise<void>
     choosePluginsDir: () => Promise<string>
+    getPluginsDir: () => Promise<string>
+    getHotkeys: () => Promise<{ [key: string]: string }>
+    setHotkey: (type: string, hotkey: string) => Promise<void>
     hideMainWindow: () => Promise<void>
     reloadApp: () => Promise<void>
   }

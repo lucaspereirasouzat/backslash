@@ -10,14 +10,15 @@ import {
 } from '@renderer/elements/Command'
 
 import { Popover, PopoverContent, PopoverTrigger } from '@renderer/elements/Popover'
-import { winElectron } from '@renderer/lib/utils'
+import { transformHotkey, winElectron } from '@renderer/lib/utils'
 
 export const SubCommand = ({ actions, pluginName, commandName, result, inputRef }) => {
   const [open, setOpen] = useState(false)
+  const [hotkey, setHotkey] = useState(['CTRL', 'G'])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'g' && e.ctrlKey) {
+      if (e[`${hotkey[0].toLowerCase()}Key`] && e.key.toUpperCase() === hotkey[1]) {
         e.preventDefault()
         setOpen((o) => !o)
       }
@@ -27,6 +28,19 @@ export const SubCommand = ({ actions, pluginName, commandName, result, inputRef 
 
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
+
+  useEffect(() => {
+    const fetchHotkey = async () => {
+      try {
+        const hk = await winElectron.getHotkeys()
+        setHotkey(transformHotkey(hk['more-actions']))
+      } catch (error) {
+        setHotkey(['CTRL', 'G'])
+      }
+    }
+
+    fetchHotkey()
+  }, [open])
 
   const handleActionSelect = async (actionName: string) => {
     await winElectron.runPluginAction(pluginName, commandName, actionName, result)
@@ -50,8 +64,8 @@ export const SubCommand = ({ actions, pluginName, commandName, result, inputRef 
           <span className="flex items-center gap-2 text-xs">
             More
             <div className="flex items-center gap-0.5">
-              <CommandShortcut>^</CommandShortcut>
-              <CommandShortcut>G</CommandShortcut>
+              <CommandShortcut>{hotkey[0]}</CommandShortcut>
+              <CommandShortcut>{hotkey[1]}</CommandShortcut>
             </div>
           </span>
         </PopoverTrigger>

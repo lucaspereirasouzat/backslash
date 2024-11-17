@@ -280,3 +280,12 @@ export const SHORTCUTS: ShortcutT[] = [
     getUrl: (query: string) => `https://www.imdb.com/find?q=${encodeURIComponent(query)}`
   }
 ]
+
+/**
+ * Transforms a hotkey string into an array of uppercase strings.
+ * @param {string} hotkey - the hotkey string
+ * @returns {string[]} - an array of uppercase strings
+ */
+export const transformHotkey = (hotkey: string): string[] => {
+  return hotkey.split('+').map((key) => key.trim().toUpperCase())
+}

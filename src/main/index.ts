@@ -20,7 +20,6 @@ import {
 import { setupAutoUpdater } from './autoUpdater'
 
 let mainWindow: BrowserWindow
-let tray: Tray | null = null
 const gotTheLock = app.requestSingleInstanceLock()
 
 const createWindow = async () => {
@@ -78,7 +77,7 @@ const registerGlobalShortcut = async () => {
 const createTray = () => {
   if (process.platform !== 'linux') return
 
-  tray = new Tray(icon)
+  global.tray = new Tray(icon)
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Show app',
@@ -93,8 +92,8 @@ const createTray = () => {
     }
   ])
 
-  tray.setToolTip('Backslash')
-  tray.setContextMenu(contextMenu)
+  global.tray.setToolTip('Backslash')
+  global.tray.setContextMenu(contextMenu)
 }
 
 if (!gotTheLock) {

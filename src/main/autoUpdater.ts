@@ -25,7 +25,11 @@ export const setupAutoUpdater = () => {
         buttons: ['Restart', 'Later']
       })
       .then((result) => {
-        if (result.response === 0) autoUpdater.quitAndInstall()
+        if (result.response === 0) {
+          app.isQuitting = true
+          if (global.tray) global.tray.destroy()
+          autoUpdater.quitAndInstall()
+        }
       })
   })
 

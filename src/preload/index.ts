@@ -40,6 +40,9 @@ if (process.contextIsolated) {
       setHotkey: (type, hotkey) => {
         return ipcRenderer.invoke('set-hotkey', type, hotkey)
       },
+      showMainWindow: () => {
+        return ipcRenderer.send('show-main-window')
+      },
       hideMainWindow: () => {
         return ipcRenderer.send('hide-main-window')
       },

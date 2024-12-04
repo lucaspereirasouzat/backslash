@@ -1,4 +1,4 @@
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > We know, we know, this documentation is incomplete. We're still working on it (and we'll get there, eventually). In the meantime, the best way to learn how to create a Backslash plugin is to check out the source code of some existing plugins. [Browse through the plugins on GitHub](https://github.com/backslash-app/plugins) and see how they're structured. You can also [join our Discord server](https://discord.gg/sTzwBzDkK9) and ask for help or advice. We're always happy to help out!
 
 # Backslash Plugin Documentation
@@ -8,6 +8,7 @@ Welcome to the **Backslash Plugin Documentation**! So, you’ve decided to take 
 Below, you'll find a simple guide on how to create and integrate your own plugin. Ready to make Backslash even more _yours_? Let’s do this!
 
 ## Table of Contents
+
 1. [Introduction](#introduction)
 2. [Plugin Basics](#plugin-basics)
 3. [Creating Your First Plugin](#creating-your-first-plugin)

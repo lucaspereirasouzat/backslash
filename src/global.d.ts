@@ -28,6 +28,7 @@ declare global {
     getPluginsDir: () => Promise<string>
     getHotkeys: () => Promise<{ [key: string]: string }>
     setHotkey: (type: string, hotkey: string) => Promise<void>
+    showMainWindow: () => Promise<void>
     hideMainWindow: () => Promise<void>
     reloadApp: () => Promise<void>
   }

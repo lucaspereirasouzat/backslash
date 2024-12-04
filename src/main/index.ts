@@ -164,6 +164,10 @@ if (!gotTheLock) {
       return getHotkeys()
     })
 
+    ipcMain.on('show-main-window', () => {
+      if (mainWindow) mainWindow.show()
+    })
+
     ipcMain.on('hide-main-window', () => {
       if (mainWindow) mainWindow.hide()
     })

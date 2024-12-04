@@ -53,12 +53,15 @@ export const Settings = () => {
   const handleChoosePluginsDir = async () => {
     const newDir = await winElectron.choosePluginsDir()
     if (newDir) setPluginsDir(newDir)
+    winElectron.showMainWindow()
   }
 
   const handleOpenChange = async (state: boolean) => {
     setOpen(state)
     if (!state) await winElectron.reloadApp()
   }
+
+  const hasAlreadyPluginsDir = typeof pluginsDir === 'string'
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -118,7 +121,7 @@ export const Settings = () => {
                       onClick={handleChoosePluginsDir}
                       placeholder="Click here to select a directory"
                       spellCheck={false}
-                      value={pluginsDir || ''}
+                      value={hasAlreadyPluginsDir ? pluginsDir : ''}
                     />
                   </div>
                 </div>

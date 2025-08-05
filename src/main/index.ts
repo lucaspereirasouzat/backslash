@@ -7,14 +7,17 @@ import icon from '../../resources/icon.png?asset'
 import {
   choosePluginsDir,
   getCommands,
+  getDisabledPlugins,
   getHotkeys,
   getPluginActions,
   getPluginsDir,
+  getPlugins,
   listInstalledApplications,
   openApplication,
   openExternal,
   runCommand,
   runPluginAction,
+  setDisabledPlugins,
   setHotkey
 } from './handlers'
 import { setupAutoUpdater } from './autoUpdater'
@@ -154,6 +157,18 @@ if (!gotTheLock) {
 
     ipcMain.handle('get-plugins-dir', async () => {
       return getPluginsDir()
+    })
+
+    ipcMain.handle('get-plugins', async () => {
+      return getPlugins()
+    })
+
+    ipcMain.handle('get-disabled-plugins', async () => {
+      return getDisabledPlugins()
+    })
+
+    ipcMain.handle('set-disabled-plugins', async (_, pluginName, isDisabled) => {
+      return setDisabledPlugins(pluginName, isDisabled)
     })
 
     ipcMain.handle('set-hotkey', async (_, type, hotkey) => {

@@ -19,6 +19,59 @@ export const elementTypes = {
   HR: 'hr'
 }
 
+export const BANGS: BangT[] = [
+  {
+    bang: 'yt',
+    name: 'YouTube',
+    url: 'https://www.youtube.com'
+  },
+  {
+    bang: 'g',
+    name: 'Google',
+    url: 'https://www.google.com'
+  },
+  {
+    bang: 'gi',
+    name: 'Google Images',
+    url: 'https://www.google.com/images'
+  },
+  {
+    bang: 'gm',
+    name: 'Google Maps',
+    url: 'https://www.google.com/maps'
+  },
+  {
+    bang: 'w',
+    name: 'Wikipedia',
+    url: 'https://fr.wikipedia.org'
+  },
+  {
+    bang: 't',
+    name: 'Google Translate',
+    url: 'https://translate.google.com'
+  },
+  {
+    bang: 'am',
+    name: 'Amazon',
+    url: 'https://www.amazon.fr'
+  },
+  {
+    bang: 'gh',
+    name: 'GitHub',
+    url: 'https://github.com'
+  },
+  {
+    bang: 'd',
+    name: 'Larousse',
+    url: 'https://www.larousse.'
+  },
+  {
+    bang: 'im',
+    name: 'IMDb',
+    url: 'https://www.imdb.com'
+  }
+]
+
 /**
  * A global flag indicating whether the renderer is running under Electron.
  */
@@ -130,6 +183,10 @@ export const renderElement = (element, index) => {
   }
 }
 
+const getBang = (bang: string): BangT | undefined => {
+  return BANGS.find((b) => b.bang === bang)
+}
+
 /**
  * An array of shortcuts.
  *
@@ -147,6 +204,7 @@ export const renderElement = (element, index) => {
 export const SHORTCUTS: ShortcutT[] = [
   {
     name: 'sc-youtube-search',
+    bang: getBang('yt'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -161,6 +219,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-google-search',
+    bang: getBang('g'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -174,6 +233,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-image-search',
+    bang: getBang('gi'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -188,6 +248,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-google-maps',
+    bang: getBang('gm'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -201,6 +262,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-wikipedia',
+    bang: getBang('w'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -215,6 +277,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-translate',
+    bang: getBang('t'),
     label: (query: string) => (
       <>
         Translate {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -228,6 +291,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-amazon',
+    bang: getBang('am'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -241,6 +305,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-github',
+    bang: getBang('gh'),
     label: (query: string) => (
       <>
         Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -254,6 +319,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-dictionary',
+    bang: getBang('d'),
     label: (query: string) => (
       <>
         Define {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
@@ -268,6 +334,7 @@ export const SHORTCUTS: ShortcutT[] = [
   },
   {
     name: 'sc-imdb',
+    bang: getBang('im'),
     label: (query: string) => (
       <>
         Find {query && <span className="text-zinc-400 italic">{truncateQuery(query)}</span>}

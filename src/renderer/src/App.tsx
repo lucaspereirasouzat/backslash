@@ -14,9 +14,9 @@ const App = () => {
   const [selectedCommand, setSelectedCommand] = useState<CommandT | null>(null)
   const [commandSearch, setCommandSearch] = useState('')
   const commandListRef = useRef<HTMLDivElement | null>(null)
+  const [currentBangName, setCurrentBangName] = useState<string | null>(null)
 
   useScrollToTop(commandListRef, [commandSearch])
-
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
       e.preventDefault()
@@ -44,7 +44,11 @@ const App = () => {
               onKeyDown={handleInputKeyDown}
               placeholder="Search commands..."
             />
-
+            {currentBangName && (
+              <span className="ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-zinc-700 to-zinc-900 text-zinc-100 text-xs font-semibold shadow-sm border border-zinc-700">
+                {currentBangName}
+              </span>
+            )}
             <Settings />
           </div>
 
@@ -52,7 +56,7 @@ const App = () => {
             <CommandEmpty />
             <Commands commandSearch={commandSearch} setSelectedCommand={setSelectedCommand} />
             <CommandApplications commandSearch={commandSearch} />
-            <CommandShortcuts commandSearch={commandSearch} />
+            <CommandShortcuts commandSearch={commandSearch} setCurrentBang={setCurrentBangName} />
           </CommandList>
 
           <Footer>

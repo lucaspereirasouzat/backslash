@@ -26,11 +26,21 @@ declare global {
     openExternal: (url: string) => Promise<void>
     choosePluginsDir: () => Promise<string>
     getPluginsDir: () => Promise<string>
+    getPlugins: () => Promise<PluginT[]>
+    setDisabledPlugins: (pluginName: string, isDisabled: boolean) => Promise<void>
+    getDisabledPlugins: () => Promise<string[]>
     getHotkeys: () => Promise<{ [key: string]: string }>
     setHotkey: (type: string, hotkey: string) => Promise<void>
     showMainWindow: () => Promise<void>
     hideMainWindow: () => Promise<void>
     reloadApp: () => Promise<void>
+  }
+
+  type PluginT = {
+    name: string
+    label: string
+    version: string
+    author: string
   }
 
   type ApplicationT = {
@@ -62,6 +72,13 @@ declare global {
     icon: string
     label: (query: string) => JSX.Element
     name: string
+    bang?: BangT
+  }
+
+  export type BangT = {
+    bang: string
+    name: string
+    url: string
   }
 
   type ResultT = {
